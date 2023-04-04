@@ -1,28 +1,46 @@
 import { BrowserRouter } from 'react-router-dom';
+import { Navbar } from './components/Navbar';
+import { Canvas } from '@react-three/fiber';
+import { Physics, useBox, usePlane } from '@react-three/cannon';
+import { OrbitControls, Stars } from '@react-three/drei';
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
-
-function App() {
-  
+function Box() {
+  const [ref] = useBox(()=> ({mass: 1, position: [0, 10, 0]}))
   return (
-    <BrowserRouter>
-      <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-nop-repeat bg-center">
-          <Navbar/>
-          <Hero/>
-        </div>
-        <About/>
-        <Experience/>
-        <Tech/>
-        <Works/>
-        <Feedbacks/>
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div>
-      </div>
-    </BrowserRouter>
+    <mesh ref={ref} position={[0, 2, 0]}>
+      <boxBufferGeometry attach="geometry"/>
+      <meshLambertMaterial attach="material" color="hotpink"/>
+    </mesh>
   )
 }
 
-export default App
+function Plane() {
+  const [ref] = usePlane(()=> ({
+    rotation: [-Math.PI / 2, 0, 0]
+  }));
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]}>
+      <planeBufferGeometry attach="geometry" args={[100, 100]}/>
+      <meshLambertMaterial attach="material" color="lightblue"/>
+    </mesh>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Navbar/>
+      <Canvas>
+        <OrbitControls />
+        <Stars />
+        <ambientLight intensity={0.5}/>
+        <spotLight
+          position={[10, 15, 10]} angle={0.3} />
+        <Physics>
+          <Box/>
+          <Plane/>
+        </Physics>
+      </Canvas>
+    </BrowserRouter>
+  )
+}
