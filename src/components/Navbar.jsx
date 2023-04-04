@@ -1,31 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { styles } from '../styles';
-import { logo} from '../assets';
+import { logo } from '../assets';
 
-const Navbar = () => {
+function Navbar() {
   return (
-    <nav className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20`}>
-      <div className = "w-full flex justify-between items-center max-w-7xl mx-auto">
-        <Link
-          to ="/"
-          className='flex items-center gap-2'
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}>
-            <img
-              src={ logo }
-              alt="logo"
-              onMouseOver={(event) => {
-                event.target.src = logo }}
-              className='w-60'
-              />
-          </Link>
-          
-      </div>
+    <nav className='fixed'>
+      <Link
+        to ="/"
+        className='w-auto h-auto'
+        onClick={() => {
+          setActive("");
+          window.scrollTo(0, 0);
+        }}>
+          <img
+            src={ logo }
+            alt="logo"
+            onMouseOver={(event) => {
+              event.target.src = logo }}
+            className='w-30'
+            />
+        </Link>
     </nav>
   )
 }
 
-export default Navbar
+export { Navbar }
