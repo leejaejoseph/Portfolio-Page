@@ -4,10 +4,9 @@ import { logo } from '../assets';
 
 function Navbar() {
   return (
-    <nav className='fixed'>
+    <nav className='fixed z-10 pt-8'>
       <Link
         to ="/"
-        className='w-auto h-auto'
         onClick={() => {
           setActive("");
           window.scrollTo(0, 0);
@@ -17,7 +16,7 @@ function Navbar() {
             alt="logo"
             onMouseOver={(event) => {
               event.target.src = logo }}
-            className='w-30'
+            className='w-4/12'
             />
         </Link>
     </nav>

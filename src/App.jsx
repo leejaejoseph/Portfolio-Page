@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import { Canvas } from '@react-three/fiber';
 import { Physics, useBox, usePlane } from '@react-three/cannon';
 import { OrbitControls, Stars } from '@react-three/drei';
-import "./index.css"
 
 function Box() {
   const [ref] = useBox(()=> ({mass: 1, position: [0, 10, 0]}))
