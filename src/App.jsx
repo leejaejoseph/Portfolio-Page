@@ -30,13 +30,6 @@ function Plane() {
 
 function Model(props) {
   const gltf = useGLTF('/src/assets/Portfolio-blender/boxed-plane.gltf');
-  const texture = useLoader(THREE.TextureLoader, '/src/assets/Portfolio-blender/Text.png');
-  console.log(texture);
-  gltf.scene.traverse((child) => {
-    if (child.isMesh) {
-      child.material.map = texture;
-    }
-  });
   return <primitive object={gltf.scene} {...props} />;
 }
 export default function App() {
