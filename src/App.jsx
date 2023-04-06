@@ -29,7 +29,7 @@ function Plane() {
 }
 
 function Model(props) {
-  const gltf = useGLTF('/src/assets/Portfolio-blender/boxed-plane.gltf');
+  const gltf = useGLTF('/src/assets/Portfolio-blender/newplane.gltf');
   return <primitive object={gltf.scene} {...props} />;
 }
 export default function App() {
