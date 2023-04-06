@@ -1,8 +1,10 @@
+import * as THREE from 'three';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useLoader } from '@react-three/fiber';
 import { Physics, useBox, usePlane } from '@react-three/cannon';
 import { OrbitControls, Stars } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
 
 function Box() {
   const [ref] = useBox(()=> ({mass: 1, position: [0, 10, 0]}))
@@ -26,6 +28,10 @@ function Plane() {
   )
 }
 
+function Model(props) {
+  const gltf = useGLTF('/src/assets/Portfolio-blender/newplane.gltf');
+  return <primitive object={gltf.scene} {...props} />;
+}
 export default function App() {
   return (
     <BrowserRouter>
@@ -38,7 +44,7 @@ export default function App() {
           position={[10, 15, 10]} angle={0.3} />
         <Physics>
           <Box/>
-          <Plane/>
+          <Model position={[0, 0, 0]} />
         </Physics>
       </Canvas>
     </BrowserRouter>
