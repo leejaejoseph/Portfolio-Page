@@ -1,51 +1,47 @@
 import * as THREE from 'three';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Canvas, useLoader } from '@react-three/fiber';
+import { Canvas, useLoader, useThree } from '@react-three/fiber';
 import { Physics, useBox, usePlane } from '@react-three/cannon';
-import { OrbitControls, Stars } from '@react-three/drei';
+import { OrbitControls, Stars, Environment } from '@react-three/drei';
 import { useGLTF } from '@react-three/drei';
 
-function Box() {
-  const [ref] = useBox(()=> ({mass: 1, position: [0, 10, 0]}))
-  return (
-    <mesh ref={ref} position={[0, 2, 0]}>
-      <boxBufferGeometry attach="geometry"/>
-      <meshLambertMaterial attach="material" color="hotpink"/>
-    </mesh>
-  )
-}
-
-function Plane() {
-  const [ref] = usePlane(()=> ({
-    rotation: [-Math.PI / 2, 0, 0]
-  }));
-  return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]}>
-      <planeBufferGeometry attach="geometry" args={[100, 100]}/>
-      <meshLambertMaterial attach="material" color="lightblue"/>
-    </mesh>
-  )
-}
-
-function Model(props) {
-  const gltf = useGLTF('/src/assets/Portfolio-blender/newplane.gltf');
+function Torus(props) {
+  const gltf = useGLTF('/src/assets/Portfolio-blender/torus.gltf');
   return <primitive object={gltf.scene} {...props} />;
 }
-export default function App() {
+
+function LinkedIn(props) {
+  const gltf = useGLTF('/src/assets/Portfolio-blender/linkedin-shrink.gltf');
+  return <primitive object={gltf.scene} {...props} />;
+}
+
+function Resume(props) {
+  const gltf = useGLTF('/src/assets/Portfolio-blender/resume-shrink.gltf');
+  return <primitive object={gltf.scene} {...props} />;
+}
+
+function Plane(props) {
+  const gltf = useGLTF('/src/assets/Portfolio-blender/plane.gltf');
+  return <primitive object={gltf.scene} {...props} />;
+}
+
+export default function App() { 
+
   return (
     <BrowserRouter>
       <Navbar/>
-      <Canvas>
+      <Canvas orthographic camera={{ position: [2,25,2], left: -2, right: 2, top: 1, bottom: -2, zoom: 1}}>
+        <color attach="background" args={[0xf5deb3]} />
         <OrbitControls />
-        <Stars />
         <ambientLight intensity={0.5}/>
         <spotLight
-          position={[10, 15, 10]} angle={0.3} />
-        <Physics>
-          <Box/>
-          <Model position={[0, 0, 0]} />
-        </Physics>
+          position={[0, 0, 0]} angle={0.3} />
+        <Torus position={[-5, 0, -10]}/>
+        <LinkedIn position={[0, 0, 0]} />
+        <Resume position={[0, 0, 0]}/>
+        <Plane position={[0, 0, 0]} />
+        <Physics/>
       </Canvas>
     </BrowserRouter>
   )
