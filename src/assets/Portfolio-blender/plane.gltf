@@ -1,0 +1,153 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.3.27",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_materials_clearcoat",
+        "KHR_materials_transmission",
+        "KHR_materials_ior"
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "extras" : {
+                "scatter_properties" : {},
+                "assets used" : {},
+                "uiListCollec" : [
+                    {
+                        "idx" : 0,
+                        "val" : 1.2535622119903564,
+                        "color" : [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ]
+                    },
+                    {
+                        "idx" : 1,
+                        "val" : 1.7470264434814453,
+                        "color" : [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                ],
+                "uuid" : "e4dbc76a-6a72-475d-835c-95b9e442b91d",
+                "assets reported" : {}
+            },
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "extras" : {
+                "ant_landscape" : {}
+            },
+            "mesh" : 0,
+            "name" : "Plane",
+            "scale" : [
+                -58.32334899902344,
+                -58.32334899902344,
+                -58.32334899902344
+            ],
+            "translation" : [
+                -6.9793572425842285,
+                0.23702716827392578,
+                3.2478890419006348
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_clearcoat" : {
+                    "clearcoatFactor" : 0.036363635212183,
+                    "clearcoatRoughnessFactor" : 0
+                },
+                "KHR_materials_transmission" : {
+                    "transmissionFactor" : 1
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "Material",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.9212598204612732
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.6350393295288086
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Plane.007",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0
+                    },
+                    "indices" : 1,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 8,
+            "max" : [
+                1,
+                0,
+                1
+            ],
+            "min" : [
+                -1,
+                -0.03722762688994408,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5123,
+            "count" : 36,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 96,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 96,
+            "target" : 34963
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 168,
+            "uri" : "data:application/octet-stream;base64,AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/AACAv/97GL0AAIC/AACAv/97GL0AAIA/AACAP/97GL0AAIA/AACAP/97GL0AAIC/AAACAAMAAAADAAEABQAGAAcABQAHAAQAAQADAAcAAQAHAAYAAgAAAAUAAgAFAAQAAwACAAQAAwAEAAcAAAABAAYAAAAGAAUA"
+        }
+    ]
+}
