@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Canvas, useLoader, useThree } from '@react-three/fiber';
 import { Physics, useBox, usePlane } from '@react-three/cannon';
-import { OrbitControls, Stars, Environment } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, Stars, Environment } from '@react-three/drei';
 import { useGLTF } from '@react-three/drei';
 
 function Torus(props) {
@@ -31,17 +31,20 @@ export default function App() {
   return (
     <BrowserRouter>
       <Navbar/>
-      <Canvas orthographic camera={{ position: [2,25,2], left: -2, right: 2, top: 1, bottom: -2, zoom: 1}}>
-        <color attach="background" args={[0xf5deb3]} />
-        <OrbitControls />
-        <ambientLight intensity={0.5}/>
-        <spotLight
-          position={[0, 0, 0]} angle={0.3} />
-        <Torus position={[-5, 0, -10]}/>
-        <LinkedIn position={[0, 0, 0]} />
-        <Resume position={[0, 0, 0]}/>
-        <Plane position={[0, 0, 0]} />
-        <Physics/>
+      <Canvas>
+        <PerspectiveCamera makeDefault fov={75} position={[0, 0, 0]}/>
+        <mesh>
+          <color attach="background" args={[0xf5deb3]} />
+          <OrbitControls />
+          <ambientLight intensity={0.5}/>
+          <spotLight
+            position={[0, 0, 0]} angle={0.3} />
+          <Torus position={[-5, 0, -10]}/>
+          <LinkedIn position={[0, 0, 0]} />
+          <Resume position={[0, 0, 0]}/>
+          <Plane position={[0, 0, 0]} />
+          <Physics/>
+        </mesh>
       </Canvas>
     </BrowserRouter>
   )
