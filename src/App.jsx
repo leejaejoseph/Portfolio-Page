@@ -30,7 +30,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Navbar/>
-      <Canvas camera={{ position: [0, 20, 20], rotation: [Math.PI/4, 0, 0]}}>
+      <Canvas camera={{ position: [10, 15, 8]}}>
         <OrbitControls makeDefault/>
         <color attach="background" args={[0xf5deb3]} />
         <ambientLight intensity={0.5}/>
