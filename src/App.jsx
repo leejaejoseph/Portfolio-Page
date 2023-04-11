@@ -27,18 +27,24 @@ function Plane(props) {
   return <primitive object={gltf.scene} {...props} />;
 }
 
+function CubeNetwork(props) {
+  const gltf = useGLTF('/src/assets/Portfolio-blender/cube-network.gltf');
+  return <primitive object={gltf.scene} {...props} />;
+}
+
 export default function App() { 
   return (
     <BrowserRouter>
       <Navbar/>
       <Canvas styles={{ height: 400, width: 400 }}>
-        <color attach="background" args={[0x000000]} />
+        <color attach="background" args={[0x000000]}/>
         <ambientLight intensity={1}/>
-        <spotLight position={[0, 0, 0]} angle={0.3} />
+        <spotLight position={[0, 0, 0]} angle={0.3}/>
         <Torus position={[-5, -5, -10]}/>
-        <LinkedIn position={[0, -5, 0]} />
+        <LinkedIn position={[0, -5, 0]}/>
         <Resume position={[0, -5, 0]}/>
-        <Plane position={[0, -10, 0]} />
+        <Plane position={[0, -10, 0]}/>
+        <CubeNetwork position={[0, -10, 0]}/>
         <OrbitControls
           enableRotate={false}
         />
