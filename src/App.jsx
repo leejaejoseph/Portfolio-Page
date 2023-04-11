@@ -4,7 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber';
 import { Physics, useBox, usePlane } from '@react-three/cannon';
-import { OrbitControls, PerspectiveCamera, Stars, Environment, useGLTF } from '@react-three/drei';
+import { OrbitControls, OrthographicCamera, Stars, Environment, useGLTF } from '@react-three/drei';
+import { GridHelper } from 'three'
 
 function Torus(props) {
   const gltf = useGLTF('/src/assets/Portfolio-blender/torus.gltf');
@@ -30,16 +31,24 @@ export default function App() {
   return (
     <BrowserRouter>
       <Navbar/>
-      <Canvas camera={{ position: [10, 15, 8]}}>
-        <OrbitControls makeDefault/>
-        <color attach="background" args={[0xf5deb3]} />
-        <ambientLight intensity={0.5}/>
+      <Canvas styles={{ height: 400, width: 400 }}>
+        <color attach="background" args={[0x000000]} />
+        <ambientLight intensity={1}/>
         <spotLight position={[0, 0, 0]} angle={0.3} />
-        <Torus position={[-5, 0, -10]}/>
-        <LinkedIn position={[0, 0, 0]} />
-        <Resume position={[0, 0, 0]}/>
-        <Plane position={[0, 0, 0]} />
-        <Physics/>
+        <Torus position={[-5, -5, -10]}/>
+        <LinkedIn position={[0, -5, 0]} />
+        <Resume position={[0, -5, 0]}/>
+        <Plane position={[0, -10, 0]} />
+        <OrbitControls
+          enableRotate={false}
+        />
+        <OrthographicCamera
+          makeDefault
+          zoom={25}
+          near={1}
+          far={2000}
+          position={[180, 80, 200]}
+        />
       </Canvas>
     </BrowserRouter>
   )
