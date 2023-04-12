@@ -3,6 +3,9 @@
         "generator" : "Khronos glTF Blender I/O v3.3.27",
         "version" : "2.0"
     },
+    "extensionsUsed" : [
+        "KHR_materials_clearcoat"
+    ],
     "scene" : 0,
     "scenes" : [
         {
@@ -42,39 +45,48 @@
     ],
     "nodes" : [
         {
+            "extras" : {
+                "ant_landscape" : {}
+            },
             "mesh" : 0,
             "name" : "Plane",
             "scale" : [
-                231.06373596191406,
-                231.06373596191406,
-                231.06373596191406
+                -58.32334899902344,
+                -58.32334899902344,
+                -58.32334899902344
             ],
             "translation" : [
-                0.0358709841966629,
-                0.05365562438964844,
-                -7.959249019622803
+                0,
+                -2,
+                0
             ]
         }
     ],
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "New plane test",
+            "extensions" : {
+                "KHR_materials_clearcoat" : {
+                    "clearcoatFactor" : 0.036363635212183,
+                    "clearcoatRoughnessFactor" : 0
+                }
+            },
+            "name" : "Material",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
-                    0.800000011920929,
-                    0.800000011920929,
-                    0.800000011920929,
-                    1
+                    0.02909747324883938,
+                    0.02909747324883938,
+                    0.02909747324883938,
+                    0.9212598204612732
                 ],
                 "metallicFactor" : 0,
-                "roughnessFactor" : 0.5
+                "roughnessFactor" : 0.6350393295288086
             }
         }
     ],
     "meshes" : [
         {
-            "name" : "Plane",
+            "name" : "Plane.007",
             "primitives" : [
                 {
                     "attributes" : {
@@ -99,7 +111,7 @@
             ],
             "min" : [
                 -1,
-                -0.07000017166137695,
+                -0.03722762688994408,
                 -1
             ],
             "type" : "VEC3"
@@ -140,7 +152,7 @@
     "buffers" : [
         {
             "byteLength" : 232,
-            "uri" : "data:application/octet-stream;base64,AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/AACAv0Bcj70AAIA/AACAP0Bcj70AAIA/AACAv0Bcj70AAIC/AACAP0Bcj70AAIC/AAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAIA/AAAAAAAAAQADAAAAAwACAAQABgAHAAQABwAFAAAAAgAGAAAABgAEAAEAAAAEAAEABAAFAAMAAQAFAAMABQAHAAIAAwAHAAIABwAGAA=="
+            "uri" : "data:application/octet-stream;base64,AACAvwAAAAAAAIA/AACAPwAAAAAAAIA/AACAvwAAAAAAAIC/AACAPwAAAAAAAIC/AACAv/97GL0AAIC/AACAv/97GL0AAIA/AACAP/97GL0AAIA/AACAP/97GL0AAIC/b/l/PwCg0TharNE4AKDROG/5fz9t+X8/WczROHP5fz9v+X8/bfl/P2/5fz8AoNE4WqzROACg0ThZzNE4c/l/PwAAAgADAAAAAwABAAUABgAHAAUABwAEAAEAAwAHAAEABwAGAAIAAAAFAAIABQAEAAMAAgAEAAMABAAHAAAAAQAGAAAABgAFAA=="
         }
     ]
 }
