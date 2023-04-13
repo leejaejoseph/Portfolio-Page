@@ -53,7 +53,7 @@ function Joseph(props) {
 }
 
 function Total(props) {
-  const gltf = useGLTF('/src/assets/Portfolio-blender/total.gltf');
+  const gltf = useGLTF('/src/assets/Portfolio-blender/total3.gltf');
   return <primitive object={gltf.scene} {...props} />;
 }
 
@@ -64,7 +64,7 @@ export default function App() {
       <Canvas shadow="true" styles={{ height: 400, width: 400 }}>
         <hemisphereLight color="white" groundColor="blue" intensity={1} />
         <color attach="background" args={[0xffffff]}/>
-        <Torus position={[-5, -5, -10]}/>
+        {/* <Torus position={[-5, -5, -10]}/>
         <LinkedIn position={[0, -5, 0]}/>
         <Resume position={[0, -5, 0]}/>
         <Plane position={[0, -10, 0]}/>
@@ -72,7 +72,7 @@ export default function App() {
         <React position={[-40, -10, 0]} rotation={[0, -Math.PI / 4, 0]} />
         <Postgresql position={[-40, 0, 0]}/>
         <FullStack position={[-50, 0, 0]}/>
-        <Joseph/>
+        <Joseph/> */}
         <Total/>
         <OrbitControls
           enableRotate={false}
@@ -82,7 +82,7 @@ export default function App() {
           zoom={25}
           near={1}
           far={2000}
-          position={[180, 80, 200]}
+          position={[180, 0, 200]}
         />
       </Canvas>
     </BrowserRouter>
