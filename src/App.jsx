@@ -53,7 +53,7 @@ function Joseph(props) {
 }
 
 function Total(props) {
-  const gltf = useGLTF('/src/assets/Portfolio-blender/total3.gltf');
+  const gltf = useGLTF('/src/assets/Portfolio-blender/total4.gltf');
   return <primitive object={gltf.scene} {...props} />;
 }
 
@@ -82,7 +82,7 @@ export default function App() {
           zoom={25}
           near={1}
           far={2000}
-          position={[180, 0, 200]}
+          position={[180, 120, 200]}
         />
       </Canvas>
     </BrowserRouter>
