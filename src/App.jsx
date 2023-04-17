@@ -1,80 +1,79 @@
-import { useRef,   } from 'react';
+import { useRef, useState } from 'react';
 import * as THREE from 'three';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber';
 import { Physics, useBox, usePlane } from '@react-three/cannon';
-import { OrbitControls, OrthographicCamera, Stars, Environment, useGLTF } from '@react-three/drei';
+import { OrbitControls, OrthographicCamera, Stars, Environment, Reflector, useGLTF } from '@react-three/drei';
 import { GridHelper } from 'three'
 
-function Torus(props) {
+function Plane(props) {
+  const gltf = useGLTF('/src/assets/Portfolio-blender/plane.glb');
+  return <primitive object={gltf.scene} {...props}/>;
+}
+
+function Grid(props) {
+  const gltf = useGLTF('/src/assets/Portfolio-blender/grid.glb');
+  return <primitive object={gltf.scene} {...props}/>;
+}
+
+function Water(props) {
   const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/torus.gltf');
+  const gltf = useGLTF('/src/assets/Portfolio-blender/WaterBottle.glb');
   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;
 }
 
-function LinkedIn(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/linkedin-shrink.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
+// function LinkedIn(props) {
+//   const [hover, setHover] = useState(true);
+//   const gltf = useGLTF('/src/assets/Portfolio-blender/linkedin-shrink.gltf');
+//   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
-function Resume(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/resume-shrink.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
+// function Resume(props) {
+//   const [hover, setHover] = useState(true);
+//   const gltf = useGLTF('/src/assets/Portfolio-blender/resume-shrink.gltf');
+//   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
-function Plane(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/plane.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
+// function CubeNetwork(props) {
+//   const [hover, setHover] = useState(true);
+//   const gltf = useGLTF('/src/assets/Portfolio-blender/cube-network.gltf');
+//   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
-function CubeNetwork(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/cube-network.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
+// function React(props) {
+//   const [hover, setHover] = useState(true);
+//   const gltf = useGLTF('/src/assets/Portfolio-blender/react.gltf');
+//   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
-function React(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/react.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
+// function Postgresql(props) {
+//   const [hover, setHover] = useState(true);
+//   const gltf = useGLTF('/src/assets/Portfolio-blender/postgresql.gltf');
+//   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
-function Postgresql(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/postgresql.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
+// function FullStack(props) {
+//   const [hover, setHover] = useState(true);
+//   const gltf = useGLTF('/src/assets/Portfolio-blender/fullstack.gltf');
+//   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
-function FullStack(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/fullstack.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function Joseph(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/joseph.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
+// function Joseph(props) {
+//   const [hover, setHover] = useState(true);
+//   const gltf = useGLTF('/src/assets/Portfolio-blender/joseph.gltf');
+//   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
 function Total(props) {
   const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/total4.gltf');
+  const gltf = useGLTF('/src/assets/Portfolio-blender/total.gltf');
   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
 export default function App() { 
   return (
     <BrowserRouter>
       <Navbar/>
-      <Canvas shadow="true" styles={{ height: 400, width: 400, background: 'linear-gradient(90deg, #666666, #33ff6c)'}}>
+      <Canvas style={{backgroundImage: 'linear-gradient(to bottom, #000000 50%, #0e4f21)'}}>
         <hemisphereLight color="white" groundColor="blue" intensity={1} />
-        <color attach="background" args={[0xffffff]}/>S
-        <Torus position={[-5, -5, -10]}/>
-        <LinkedIn position={[0, -5, 0]}/>
-        <Resume position={[0, -5, 0]}/>
-        <Plane position={[0, -10, 0]}/>
-        <CubeNetwork position={[0, -10, 0]}/>
-        <React position={[-40, -10, 0]} rotation={[0, -Math.PI / 4, 0]} />
-        <Postgresql position={[-40, 0, 0]}/>
-        <FullStack position={[-50, 0, 0]}/>
-        <Joseph/>
         <Total/>
+        <Water/>
+        <Plane position={[0,0,0]}/>
+        <Grid/>
+        <spotLight/>
         <OrbitControls
           enableRotate={false}
         />
