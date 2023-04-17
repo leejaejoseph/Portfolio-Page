@@ -62,9 +62,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <Navbar/>
-      <Canvas shadow="true" styles={{ height: 400, width: 400 }}>
+      <Canvas shadow="true" styles={{ height: 400, width: 400, background: 'linear-gradient(90deg, #666666, #33ff6c)'}}>
         <hemisphereLight color="white" groundColor="blue" intensity={1} />
-        <color attach="background" args={[0xffffff]}/>
+        <color attach="background" args={[0xffffff]}/>S
         <Torus position={[-5, -5, -10]}/>
         <LinkedIn position={[0, -5, 0]}/>
         <Resume position={[0, -5, 0]}/>
