@@ -60,7 +60,7 @@ function Water(props) {
 
 function Total(props) {
   const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/total.gltf');
+  const gltf = useGLTF('/src/assets/Portfolio-blender/total.glb');
   return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
 
 export default function App() { 
@@ -68,12 +68,10 @@ export default function App() {
     <BrowserRouter>
       <Navbar/>
       <Canvas style={{backgroundImage: 'linear-gradient(to bottom, #000000 50%, #0e4f21)'}}>
-        <hemisphereLight color="white" groundColor="blue" intensity={1} />
-        <Total/>
+        <hemisphereLight/>
         <Water/>
-        <Plane position={[0,0,0]}/>
+        <Plane/>
         <Grid/>
-        <spotLight/>
         <OrbitControls
           enableRotate={false}
         />
