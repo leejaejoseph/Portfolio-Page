@@ -2,10 +2,8 @@ import { useRef, useState } from 'react';
 import * as THREE from 'three';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber';
-import { Physics, useBox, usePlane } from '@react-three/cannon';
+import { Canvas} from '@react-three/fiber';
 import { OrbitControls, OrthographicCamera, Stars, Environment, Reflector, useGLTF } from '@react-three/drei';
-import { GridHelper } from 'three'
 
 function Plane(props) {
   const gltf = useGLTF('/src/assets/Portfolio-blender/plane.glb');
