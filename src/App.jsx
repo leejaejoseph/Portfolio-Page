@@ -1,80 +1,35 @@
-import { useRef,   } from 'react';
+import { useRef, useState } from 'react';
 import * as THREE from 'three';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber';
-import { Physics, useBox, usePlane } from '@react-three/cannon';
-import { OrbitControls, OrthographicCamera, Stars, Environment, useGLTF } from '@react-three/drei';
-import { GridHelper } from 'three'
+import { Languages } from './components/Languages';
+import { Grid } from './components/Grid';
+import { Plane } from './components/Plane';
+import { LinkedIn } from './components/LinkedIn';
+import { Resume } from './components/Resume'
+import { Canvas, useThree } from '@react-three/fiber';
+import { BeTabd } from './components/BeTabd'
+import { EsportsViewer } from './components/EsportsViewer'
+import { OrbitControls, OrthographicCamera, MeshReflectorMaterial, Environment, useGLTF } from '@react-three/drei';
+import { Gridh } from './components/Gridh';
 
-function Torus(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/torus.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;
-}
-
-function LinkedIn(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/linkedin-shrink.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function Resume(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/resume-shrink.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function Plane(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/plane.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function CubeNetwork(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/cube-network.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function React(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/react.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function Postgresql(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/postgresql.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function FullStack(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/fullstack.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function Joseph(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/joseph.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-function Total(props) {
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/total4.gltf');
-  return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
-
-export default function App() { 
+export default function App() {
   return (
     <BrowserRouter>
       <Navbar/>
-      <Canvas shadow="true" styles={{ height: 400, width: 400, background: 'linear-gradient(90deg, #666666, #33ff6c)'}}>
-        <hemisphereLight color="white" groundColor="blue" intensity={1} />
-        <color attach="background" args={[0xffffff]}/>S
-        <Torus position={[-5, -5, -10]}/>
-        <LinkedIn position={[0, -5, 0]}/>
-        <Resume position={[0, -5, 0]}/>
-        <Plane position={[0, -10, 0]}/>
-        <CubeNetwork position={[0, -10, 0]}/>
-        <React position={[-40, -10, 0]} rotation={[0, -Math.PI / 4, 0]} />
-        <Postgresql position={[-40, 0, 0]}/>
-        <FullStack position={[-50, 0, 0]}/>
-        <Joseph/>
-        <Total/>
+      <Canvas 
+      style={
+        {backgroundImage: 'linear-gradient(to bottom, #000000 50%, #0e4f21)'}}
+        >
+        <Environment background preset="night"/>
+        <directionalLight intensity={.25} color="#ffffff" position={[1, 2, 3]} />
+        <Grid/>
+        <Languages position={[10, 1, 10]}/>
+        <Gridh/>
+        <LinkedIn/>
+        <Resume/>
+        <BeTabd/>
+        <EsportsViewer/>
         <OrbitControls
           enableRotate={false}
         />
@@ -85,6 +40,7 @@ export default function App() {
           far={2000}
           position={[180, 120, 200]}
         />
+        <Plane/>
       </Canvas>
     </BrowserRouter>
   )
