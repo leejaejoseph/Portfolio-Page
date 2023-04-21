@@ -1,9 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useGLTF } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 
 export function LinkedIn(props) {
-    const [hover, setHover] = useState(true);
-    const gltf = useGLTF('/src/assets/Portfolio-blender/linkedin.glb');
-    return <primitive onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;
+    const linkedIn = useGLTF('/src/assets/Portfolio-blender/linkedin2.glb');
+    const glass = linkedIn.materials["Glass-Linkedin"];
+    
+    useFrame((state) => {
+          const t = (Math.sin(state.clock.getElapsedTime() * 3) + 1) / 2; 
+          glass.emissiveIntensity = (1 - t) * 0.25 + t * .5;
+      })
+    return (
+        <primitive
+            onClick={(e) => {
+                e.stopPropagation();
+                window.open('https://www.linkedin.com/in/leejaejoseph/')
+            }}
+            object={linkedIn.scene}
+            {...props}
+        />);
 }
   

@@ -1,30 +1,64 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { SpotLight, useGLTF } from '@react-three/drei';
-import { Object3D } from 'three';
+import { SpotLight, useGLTF, useHelper, } from '@react-three/drei';
+import { BoxHelper, Object3D } from 'three';
+import { useFrame } from '@react-three/fiber';
+import { useControls } from 'leva';
 
 
 export function Languages(props) {
     const [hover, setHover] = useState(false);
-    const gltf = useGLTF('/src/assets/Portfolio-blender/language1.glb');
-    const {position} = gltf.scene;
-
-    console.log('reflection');
+    const stack = useGLTF('/src/assets/Portfolio-blender/languageItems.glb');
+    const title = useGLTF('/src/assets/Portfolio-blender/languageTitle.glb')
+    const titleMaterial = title.scene.children[0].material; // Assuming the title only has one material
+    const titleMaterial1 = title.scene.children[1].material; // Assuming the title only has one material
+    const {position} = stack.scene;
+    const addx = useControls({x: 0})
+    const addy = useControls({y: 50})
+    const addz = useControls({z: 0})
+    const distance = useControls({d: 100})
+    const intensity = useControls({i: 4})
+    const helper = useRef();
+    const pi = useControls({pi:8})
+    useHelper(helper, BoxHelper, 'cyan')
+    // useHelper(condition && mesh, BoxHelper, 'red')
+    
+    useFrame((state, delta) => {
+      if (hover) {
+        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = 20; // Set emissive intensity to 20 when hovering
+      } else {
+        // Use the Math.easeInOutSine function to smoothly animate the emissive intensity from 0.25 to 20
+        const t = (Math.sin(state.clock.getElapsedTime() * 2) + 1) / 2; 
+        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = (1 - t) * 0.25 + t * 20;
+      }
+    })
     return (
       <>
         <SpotLight
+        ref={helper}
   castShadow
-  position={[position.x, position.y + 50, position.z]}
-  target={gltf.scene}
+  position={[position.x + addx.x, position.y + addy.y, position.z + addz.z]}
+  // 20, 34, 14
+  target={stack.scene}
   penumbra={1}
-  distance={100}
-  angle={Math.PI / 8} // make the cone wider
-  intensity={hover ? 0.75 : 0.25}
+  distance={distance.d}
+  //0
+  angle={Math.PI / pi.pi} // make the cone wider
+  //  angle={Math.PI / 9} // make the cone wider
+  intensity={intensity.i}
+
+  // intensity={hover ? .5 : 1.5}
   opacity={0.2}
 />
         <primitive
           onPointerOver={(e) => setHover(true)}
           onPointerOut={(e) => setHover(false)}
-          object={gltf.scene}
+          object={stack.scene}
+          {...props}
+        />
+        <primitive
+          onPointerOver={(e) => setHover(true)}
+          onPointerOut={(e) => setHover(false)}
+          object={title.scene}
           {...props}
         />
       </>
