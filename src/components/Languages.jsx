@@ -8,6 +8,7 @@ export function Languages(props) {
     const gltf = useGLTF('/src/assets/Portfolio-blender/language1.glb');
     const {position} = gltf.scene;
 
+    console.log('reflection');
     return (
       <>
         <SpotLight
