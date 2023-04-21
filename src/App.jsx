@@ -19,7 +19,7 @@ export default function App() {
       <Navbar/>
       <Canvas 
       style={
-        {backgroundImage: 'linear-gradient(to bottom, #000000 50%, #0e4f21)'}}
+        {backgroundImage: 'linear-gradient(to bottom, #000000 50%, #33a6ff)'}}
         >
         <Environment background preset="night"/>
         <directionalLight intensity={.25} color="#ffffff" position={[1, 2, 3]} />
