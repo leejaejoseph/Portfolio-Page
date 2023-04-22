@@ -24,13 +24,13 @@ export function Languages(props) {
     
     useFrame((state, delta) => {
       if (hover) {
-        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = 20; // Set emissive intensity to 20 when hovering
+        const t = Math.min(1, titleMaterial.emissiveIntensity + delta * 2);
+        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = t;
       } else {
-        // Use the Math.easeInOutSine function to smoothly animate the emissive intensity from 0.25 to 20
-        const t = (Math.sin(state.clock.getElapsedTime() * 2) + 1) / 2; 
-        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = (1 - t) * 0.25 + t * 20;
+        const t = Math.max(0, titleMaterial.emissiveIntensity - delta * 2);
+        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = t;
       }
-    })
+    });
     return (
       <>
         <SpotLight
