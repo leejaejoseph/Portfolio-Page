@@ -17,7 +17,7 @@ import { OrbitControls, OrthographicCamera, Environment, useGLTF, useHelper } fr
 import { Gridh } from './components/Gridh';
 import { useControls } from 'leva';
 import { BLight } from './components/BackLights';
-
+import { Reactor } from './components/Reactor';
 
 export default function App() {
 
@@ -32,13 +32,15 @@ export default function App() {
         >
         <Environment background preset="night"/>
         <BLight/>
+        <Reactor/>
         {/* <directionalLight intensity={1} color="#ffffff" position={[1, 2, 3]} /> */}
-        {/* <Grid/> */}
+        <Grid/>
         <Languages position={[10, 1, 10]}/>
         {/* <Gridh/> */}
         <LinkedIn/>
         <Resume/>
         <BeTabd/>
+        <Reactor/>
         <EsportsViewer/>
         <OrbitControls
           enableRotate={false}
