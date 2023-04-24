@@ -9,5 +9,5 @@ export function AboutMe(props) {
 
   return (
   <>
-    <primitive position={[pos.xa, pos.ya, pos.za]}  onClick={(e)=>{e.stopPropgration(); }} {...props}/>
+    <primitive position={[42, 0, 50]}  onClick={(e)=>{e.stopPropgration(); }} object={aboutMe.scene}{...props}/>
   </>)}
