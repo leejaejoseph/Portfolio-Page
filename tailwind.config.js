@@ -25,6 +25,9 @@ module.exports = {
         "hero-pattern": "url('/src/assets/herobg.png')",
       },
     },
+    fontFamily: {
+      'Pathway-Extreme': ['Pathway Extreme', 'sans-serif'],
+    }
   },
   plugins: [],
 };
