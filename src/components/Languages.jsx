@@ -15,6 +15,7 @@ export function Languages(props) {
     const addx = useControls({x: 0})
     const addy = useControls({y: 50})
     const addz = useControls({z: 0})
+    const pos = useControls({lx: 0, ly: 0, lz: 0})
     const distance = useControls({d: 100})
     const intensity = useControls({i: 4})
     const helper = useRef();
@@ -34,32 +35,35 @@ export function Languages(props) {
     return (
       <>
         <SpotLight
-        ref={helper}
-  castShadow
-  position={[position.x + addx.x, position.y + addy.y, position.z + addz.z]}
-  // 20, 34, 14
-  target={stack.scene}
-  penumbra={1}
-  distance={distance.d}
-  //0
-  angle={Math.PI / pi.pi} // make the cone wider
-  //  angle={Math.PI / 9} // make the cone wider
-  intensity={intensity.i}
+          ref={helper}
+          castShadow
+          position={[position.x + addx.x, position.y + addy.y, position.z + addz.z]}
+          // 20, 34, 14
+          target={stack.scene}
+          penumbra={1}
+          distance={distance.d}
+          //0
+          angle={Math.PI / pi.pi} // make the cone wider
+          //  angle={Math.PI / 9} // make the cone wider
+          intensity={intensity.i}
 
-  // intensity={hover ? .5 : 1.5}
-  opacity={0.2}
-/>
+          // intensity={hover ? .5 : 1.5}
+          opacity={0.2}
+        />
         <primitive
           onPointerOver={(e) => setHover(true)}
           onPointerOut={(e) => setHover(false)}
           object={stack.scene}
           {...props}
+          position={[-2, 0, 0]}
         />
         <primitive
           onPointerOver={(e) => setHover(true)}
           onPointerOut={(e) => setHover(false)}
           object={title.scene}
           {...props}
+          position={[-2, 0, 0]}
+
         />
       </>
     );
