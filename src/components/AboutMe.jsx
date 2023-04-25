@@ -18,9 +18,9 @@ export function AboutMe(props) {
 
     } 
     else {
-      state.camera.position.lerp({x: 180, y: 120, z: 200}, 0.03); // Reset camera position
-      state.camera.lookAt(0, 0, 0);
-      state.camera.updateProjectionMatrix()
+      // state.camera.position.lerp({x: 180, y: 120, z: 200}, 0.03); // Reset camera position
+      // state.camera.lookAt(0, 0, 0);
+      // state.camera.updateProjectionMatrix()
     }
   })
   
