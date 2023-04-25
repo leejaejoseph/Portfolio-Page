@@ -10,17 +10,17 @@ export function AboutMe(props) {
   const aboutMe = useGLTF('/src/assets/Portfolio-blender/aboutme.glb');
   const pos = useControls({xa: 0, ya: 0, za:0})
   useFrame((state) => {
+    console.log(state.camera)
     if (showModal) {
       state.camera.position.lerp({ x: 0, y: 140, z: 200 }, 0.03)
       state.camera.lookAt(42, 0, 50)
       state.camera.updateProjectionMatrix()
 
-    } else {
+    } 
+    else {
       state.camera.position.lerp({x: 180, y: 120, z: 200}, 0.03); // Reset camera position
       state.camera.lookAt(0, 0, 0);
       state.camera.updateProjectionMatrix()
-
-
     }
   })
   
