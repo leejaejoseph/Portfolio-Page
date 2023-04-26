@@ -11,6 +11,10 @@ export function Languages(props) {
     const title = useGLTF('/src/assets/Portfolio-blender/languageTitle.glb')
     const titleMaterial = title.scene.children[0].material; // Assuming the title only has one material
     const titleMaterial1 = title.scene.children[1].material; // Assuming the title only has one material
+    const mesh = stack.scene.children[0].children;
+    const stackMaterial = mesh[4].material;
+    const stackMaterial1 = mesh[6].material;
+    const stackMaterial2 = mesh[7].material;
     const {position} = stack.scene;
     const addx = useControls({x: 0})
     const addy = useControls({y: 50})
@@ -26,10 +30,10 @@ export function Languages(props) {
     useFrame((state, delta) => {
       if (hover) {
         const t = Math.min(1, titleMaterial.emissiveIntensity + delta * 2);
-        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = t;
+        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = stackMaterial.emissiveIntensity = stackMaterial1.emissiveIntensity = stackMaterial2.emissiveIntensity = t;
       } else {
         const t = Math.max(0, titleMaterial.emissiveIntensity - delta * 2);
-        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = t;
+        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = stackMaterial.emissiveIntensity = stackMaterial1.emissiveIntensity = stackMaterial2.emissiveIntensity = t;
       }
     });
     return (
