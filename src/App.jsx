@@ -18,14 +18,15 @@ import { Reactor } from './components/Reactor';
 import { AboutMe } from './components/AboutMe';
 import { Filler } from './components/Filler';
 import { Overlay } from './components/Overlay';
+import { RCamera} from './components/RCamera';
 // import { LoadingScreen } from './components/LoadingScreen';
 
 
 export default function App() {
-  const orthographicCameraRef = useRef();
-  const perspectiveCameraRef = useRef();
+  // const orthographicCameraRef = useRef();
+  // const perspectiveCameraRef = useRef();
 
-  const [isOrthographic, setIsOrthographic] = useState(true);
+  // const [isOrthographic, setIsOrthographic] = useState(true); onClose={setIsOrthographic(!isOrthographic)}
 
   const cameraCont = useControls({z:20, n:1, f:2000, x2:160, y2:151, z2:240, li:1, l1:1, l2:2, l3:3})
   return (
@@ -35,7 +36,7 @@ export default function App() {
       <Canvas 
       style={
         {backgroundImage: 'linear-gradient(to bottom, #000000 50%, #33a6ff)'}}
-        camera={isOrthographic ? orthographicCameraRef.current : perspectiveCameraRef.current}
+        // camera={isOrthographic ? orthographicCameraRef.current : perspectiveCameraRef.current}
       
         >
         <Environment background preset="night"/>
@@ -48,25 +49,11 @@ export default function App() {
         <Resume/>
         <BeTabd/>
         <Reactor/>
-        <AboutMe onClose={setIsOrthographic(!isOrthographic)}/>
+        <AboutMe />
         <EsportsViewer/>
         <Filler/>
-        <OrbitControls
-          enablePan={true}
-          enableRotate={false}
-          />
-        <OrthographicCamera
-          makeDefault
-          ref={orthographicCameraRef}
-          zoom={cameraCont.z}//{25}
-          near={cameraCont.n}//1
-          far={cameraCont.f}//{2000}
-          position={[cameraCont.x2, cameraCont.y2, cameraCont.z2]}//[180, 120, 200]}
-        />
-        <PerspectiveCamera
-          ref={perspectiveCameraRef}
-          position={[0, 140, 200 ]}/>
         <Plane/>
+        <RCamera/>
       </Canvas>
     </BrowserRouter>
   )
