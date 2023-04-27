@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import * as THREE from 'three';
 import { BoxHelper, Object3D } from 'three';
 import { BrowserRouter } from 'react-router-dom';
@@ -17,7 +17,7 @@ import { BLight } from './components/BackLights';
 import { Reactor } from './components/Reactor';
 import { AboutMe } from './components/AboutMe';
 import { Filler } from './components/Filler';
-// import { Overlay } from './components/Overlay';
+import { Overlay } from './components/Overlay';
 // import { LoadingScreen } from './components/LoadingScreen';
 
 
@@ -26,23 +26,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Navbar/>
-      <div className='absolute z-30 w-full h-full flex justify-center items-center'>
-        <div className='w-9/12 relative flex h-[70vh] justify-center flex-wrap rounded-3xl bg-white/40'>
-          <div className='w-full'>
-            <h1 className='w-full text-center text-6xl pt-20 font-Roboto-Mono'>
-              About Me
-            </h1>
-          </div>
-          <div className='w-9/12 text-3xl font-Roboto-Mono'>
-            <h4>
-            My name is Joseph Lee, and I am a front-end web developer having shifted from media marketing. Software engineering is a means for me to bring life to innovations that expand digital's capabilities. My desires for the "new", questionings of possibilities, and adaptability towards uncertainty are all qualities extensively developed throughout my university and post-undergraduate career in hopes to project manage all aspects from pr and marketing to full-stack development. This is in belief that even the best technologies have often seen abandonment due to its poor branding.
-            </h4>
-          </div>
-          <button className='fixed right-96 text-6xl pt-20 pl-6'>
-            x
-          </button>
-        </div>
-      </div>
+      <Overlay/>
       <Canvas 
       style={
         {backgroundImage: 'linear-gradient(to bottom, #000000 50%, #33a6ff)'}}

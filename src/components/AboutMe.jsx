@@ -3,7 +3,6 @@ import { useGLTF, Html, OrbitControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useControls } from 'leva';
 import { useNavigate } from 'react-router-dom';
-import Aboutpage from './aboutpage';
 
 export function AboutMe(props) {
   const [showModal, setShowModal] = useState(false);
