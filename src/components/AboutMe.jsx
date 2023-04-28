@@ -7,6 +7,12 @@ export function AboutMe(props) {
   const navigate = useNavigate();
 
   return (
-  <>
-    <primitive position={[11, 0, 52]}  onClick={(e)=>{e.stopPropagation(); navigate('/about');}} object={aboutMe.scene}{...props}/>
-  </>)}
+    <primitive 
+      position={[11, 0, 52]}
+      onClick={(e) => {
+        e.stopPropagation();
+        navigate('/about');
+      }} 
+      object={aboutMe.scene}
+      {...props}/>
+)}
