@@ -1,7 +1,6 @@
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { leeJosephResume } from './utility/fileAssets'
 
 export function Resume(props) {
     const resume = useGLTF('/src/assets/resume.glb');
@@ -14,7 +13,7 @@ export function Resume(props) {
         <primitive
             onClick={(e) => {
                 e.stopPropagation();
-                window.open({ leeJosephResume });
+                window.open('/src/assets/files/Lee_Joseph_Resume.pdf');
             }}
             object={resume.scene}
             {...props}

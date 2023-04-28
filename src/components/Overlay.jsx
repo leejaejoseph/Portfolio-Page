@@ -8,10 +8,17 @@ import { loading } from "./utility/fileAssets";
 
 function Overlay(props) {
     const [clicked, setClicked] = useState(false);
+    const [render, setRender] = useState(false);
 
     const location = useLocation();
     const navigate = useNavigate();
     const { progress } = useProgress();
+
+    useEffect(()=> {
+        if (progress === 100) {
+            setRender(true);
+        }
+    }, [progress])
 
     useEffect(()=> {
         if (location.pathname !== '/') {
@@ -30,7 +37,7 @@ function Overlay(props) {
 
     return (
         <>
-            <div className={progress === 100 ? 'hidden': 'absolute z-40'}>
+            <div className={render ? 'hidden': 'absolute z-40'}>
                 <div className="w-[100vw] h-[100vh] bg-[#D9DDDC] flex justify-center items-center flex-col font-Orbitron text-6xl gap-10">
                     <h1>Please wait for the Application to Load</h1>
                     <img src={loading} alt='loading gif'/>

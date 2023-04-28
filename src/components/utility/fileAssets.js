@@ -1,5 +1,4 @@
 import logo from '../../assets/files/logo.gif';
-import leeJosephResume from '../../assets/files/Lee_Joseph_Resume.pdf';
 import awsec2 from '../../assets/files/AWSEC2.png'
 import blender from '../../assets/files/blender.png'
 import css from '../../assets/files/css.png'
@@ -16,7 +15,6 @@ import loading from '../../assets/files/loading.gif';
 
 export {
     logo,
-    leeJosephResume,
     awsec2,
     blender,
     css,
