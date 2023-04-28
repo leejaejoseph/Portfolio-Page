@@ -1,10 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useNavigate } from 'react-router-dom';
 
 export function Languages(props) {
     const [hover, setHover] = useState(false);
+    const [loaded, setLoaded] = useState(false);
     const reactRef = useRef();
     const navigate = useNavigate();
 
@@ -27,11 +28,16 @@ export function Languages(props) {
     const html2 = mesh[11].children[4].material;
     const css1 = mesh[11].children[5].material;
     const css2 = mesh[11].children[6].material;
-    
+
+    useEffect(()=> {
+      titleMaterial.emissiveIntensity = react1.emissiveIntensity = javaScript1.emissiveIntensity = javaScript2.emissiveIntensity = html1.emissiveIntensity = html2.emissiveIntensity = css1.emissiveIntensity = css2.emissiveIntensity = typeScript1.emissiveIntensity = typeScript2.emissiveIntensity = postgreSQL1.emissiveIntensity = postgreSQL2.emissiveIntensity = 0;
+      setLoaded(true);
+    }, [])
+
     let elapsedTime = 0;
 
     useFrame((state, delta) => {
-      if (hover) {
+      if (hover && loaded) {
         const emission = Math.min(1, titleMaterial.emissiveIntensity + delta * 2);
         titleMaterial.emissiveIntensity = react1.emissiveIntensity = javaScript1.emissiveIntensity = javaScript2.emissiveIntensity = html1.emissiveIntensity = html2.emissiveIntensity = css1.emissiveIntensity = css2.emissiveIntensity = typeScript1.emissiveIntensity = typeScript2.emissiveIntensity = postgreSQL1.emissiveIntensity = postgreSQL2.emissiveIntensity = emission;
       } else {
