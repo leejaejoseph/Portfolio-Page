@@ -12,6 +12,7 @@ import tailwind from '../../assets/files/tailwind.png'
 import threeJs from '../../assets/files/threeJs.png'
 import webpack from '../../assets/files/webpack.png'
 import javascript from '../../assets/files/JS.png'
+import loading from '../../assets/files/loading.gif';
 
 export {
     logo,
@@ -28,4 +29,5 @@ export {
     threeJs,
     webpack,
     javascript,
+    loading,
 };
