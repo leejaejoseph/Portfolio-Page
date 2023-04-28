@@ -26,7 +26,9 @@ module.exports = {
       },
     },
     fontFamily: {
+      'Roboto-Mono': ['Roboto Mono', 'monospace'],
       'Pathway-Extreme': ['Pathway Extreme', 'sans-serif'],
+      'Orbitron': ['Orbitron', 'sans-serif'],
     }
   },
   plugins: [],
