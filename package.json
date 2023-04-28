@@ -2,8 +2,9 @@
   "name": "portfolio-page",
   "private": true,
   "version": "0.0.0",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "vite --mode development",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
