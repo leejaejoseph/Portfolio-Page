@@ -5,7 +5,7 @@ import { LinkedIn } from '../LinkedIn';
 import { Resume } from '../Resume'
 import { BeTabd } from '../BeTabd'
 import { EsportsViewer } from '../EsportsViewer'
-import { BLight } from '../BackLights';
+import { BackLights } from '../BackLights';
 import { Reactor } from '../Reactor';
 import { AboutMe } from '../AboutMe';
 import { Filler } from '../Filler';
@@ -20,7 +20,7 @@ export {
     Resume,
     BeTabd,
     EsportsViewer,
-    BLight,
+    BackLights,
     Reactor,
     AboutMe,
     Filler,

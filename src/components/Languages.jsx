@@ -32,11 +32,11 @@ export function Languages(props) {
 
     useFrame((state, delta) => {
       if (hover) {
-        const t = Math.min(1, titleMaterial.emissiveIntensity + delta * 2);
-        titleMaterial.emissiveIntensity = react1.emissiveIntensity = javaScript1.emissiveIntensity = javaScript2.emissiveIntensity = html1.emissiveIntensity = html2.emissiveIntensity = css1.emissiveIntensity = css2.emissiveIntensity = typeScript1.emissiveIntensity = typeScript2.emissiveIntensity = postgreSQL1.emissiveIntensity = postgreSQL2.emissiveIntensity = t;
+        const emission = Math.min(1, titleMaterial.emissiveIntensity + delta * 2);
+        titleMaterial.emissiveIntensity = react1.emissiveIntensity = javaScript1.emissiveIntensity = javaScript2.emissiveIntensity = html1.emissiveIntensity = html2.emissiveIntensity = css1.emissiveIntensity = css2.emissiveIntensity = typeScript1.emissiveIntensity = typeScript2.emissiveIntensity = postgreSQL1.emissiveIntensity = postgreSQL2.emissiveIntensity = emission;
       } else {
-        const t = Math.max(0, titleMaterial.emissiveIntensity - delta * 2);
-        titleMaterial.emissiveIntensity = react1.emissiveIntensity = javaScript1.emissiveIntensity = javaScript2.emissiveIntensity = html1.emissiveIntensity = html2.emissiveIntensity = css1.emissiveIntensity = css2.emissiveIntensity = typeScript1.emissiveIntensity = typeScript2.emissiveIntensity = postgreSQL1.emissiveIntensity = postgreSQL2.emissiveIntensity = t;
+        const emission = Math.max(0, titleMaterial.emissiveIntensity - delta * 2);
+        titleMaterial.emissiveIntensity = react1.emissiveIntensity = javaScript1.emissiveIntensity = javaScript2.emissiveIntensity = html1.emissiveIntensity = html2.emissiveIntensity = css1.emissiveIntensity = css2.emissiveIntensity = typeScript1.emissiveIntensity = typeScript2.emissiveIntensity = postgreSQL1.emissiveIntensity = postgreSQL2.emissiveIntensity = emission;
       }
       elapsedTime+=delta
       reactRef.current.rotation.y += delta;
@@ -70,7 +70,7 @@ export function Languages(props) {
             ref={reactRef}
             object={reactItem.scene}
             {...props}
-            position={[-21, 0, 14.5]}
+            position={[-20, 0, 16.2]}
           />
         </group>
       </group>

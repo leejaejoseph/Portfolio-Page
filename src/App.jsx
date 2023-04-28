@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
-import { Navbar, Languages, Plane, LinkedIn, Resume, BeTabd, EsportsViewer, BLight, Reactor, AboutMe, Filler, Overlay, CanvasCamera } from './components/utility/exports'
+import { Navbar, Languages, Plane, LinkedIn, Resume, BeTabd, EsportsViewer, BackLights, Reactor, AboutMe, Filler, Overlay, CanvasCamera } from './components/utility/exports'
 
 export default function App() {
   return (
@@ -15,7 +15,7 @@ export default function App() {
           {backgroundImage: 'linear-gradient(to bottom, #000000 50%, #33a6ff)'}}        
           >
           <Environment background preset="night"/>
-          <BLight/>
+          <BackLights/>
           <Reactor/>
           <Languages/>
           <LinkedIn/>

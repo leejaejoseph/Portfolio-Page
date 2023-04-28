@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { logo } from './utility/fileAssets';
 
 function Navbar() { 
   return (
@@ -7,10 +8,10 @@ function Navbar() {
       <Link
         to ="https://github.com/leejaejoseph">
           <img
-            src='../src/assets/logo.gif'
+            src={logo}
             alt="logo"
             onPointerOver={(event) => {
-              event.target.src = '../src/assets/logo.gif' }}
+              event.target.src = logo }}
             className='w-4/12'
             />
         </Link>
