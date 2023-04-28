@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
-import { Navbar, Languages, Grid, Plane, LinkedIn, Resume, BeTabd, EsportsViewer, BLight, Reactor, AboutMe, Filler, Overlay, RCamera } from './components/utility/exports'
+import { Navbar, Languages, Plane, LinkedIn, Resume, BeTabd, EsportsViewer, BLight, Reactor, AboutMe, Filler, Overlay, CanvasCamera } from './components/utility/exports'
 
 export default function App() {
   return (
@@ -17,7 +17,6 @@ export default function App() {
           <Environment background preset="night"/>
           <BLight/>
           <Reactor/>
-          <Grid/>
           <Languages/>
           <LinkedIn/>
           <Resume/>
@@ -27,7 +26,7 @@ export default function App() {
           <EsportsViewer/>
           <Filler/>
           <Plane/>
-          <RCamera/>
+          <CanvasCamera/>
         </Canvas>
       </div>
     </BrowserRouter>

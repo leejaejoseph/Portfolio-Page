@@ -1,6 +1,5 @@
 import { Navbar } from '../Navbar';
 import { Languages } from '../Languages';
-import { Grid } from '../Grid';
 import { Plane } from '../Plane';
 import { LinkedIn } from '../LinkedIn';
 import { Resume } from '../Resume'
@@ -11,12 +10,11 @@ import { Reactor } from '../Reactor';
 import { AboutMe } from '../AboutMe';
 import { Filler } from '../Filler';
 import { Overlay } from '../Overlay';
-import { RCamera } from '../RCamera';
+import { CanvasCamera } from '../CanvasCamera';
 
 export {
     Navbar,
     Languages,
-    Grid,
     Plane,
     LinkedIn,
     Resume,
@@ -27,5 +25,5 @@ export {
     AboutMe,
     Filler,
     Overlay,
-    RCamera,
+    CanvasCamera,
 };

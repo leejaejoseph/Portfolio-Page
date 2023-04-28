@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { SpotLight, useGLTF, useHelper } from '@react-three/drei';
+import { useHelper } from '@react-three/drei';
 import { DirectionalLightHelper, Object3D } from 'three';
 import { useControls } from 'leva';
 

@@ -3,13 +3,14 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 export function LinkedIn(props) {
-    const linkedIn = useGLTF('/src/assets/Portfolio-blender/linkedin.glb');
+    const linkedIn = useGLTF('/src/assets/linkedin.glb');
     const glass = linkedIn.materials["Glass-Linkedin"];
     
     useFrame((state) => {
-          const t = (Math.sin(state.clock.getElapsedTime() * 3) + 1) / 2; 
-          glass.emissiveIntensity = (1 - t) * 0.25 + t * .5;
-      })
+        const sine = (Math.sin(state.clock.getElapsedTime() * 3) + 1) / 2; 
+        glass.emissiveIntensity = (1 - sine) * 0.25 + sine * .5;
+    })
+
     return (
         <primitive
             onClick={(e) => {

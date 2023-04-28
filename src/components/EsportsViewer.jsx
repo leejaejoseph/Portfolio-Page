@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useGLTF } from '@react-three/drei';
-import { useControls } from 'leva';
-
 
 export function EsportsViewer(props) {
-  const pos = useControls({x5: 55, y5: 0, z5:-44}) 
-  const [hover, setHover] = useState(true);
-  const gltf = useGLTF('/src/assets/Portfolio-blender/esportsviewer.glb');
-  return <primitive position={[pos.x5, pos.y5, pos.z5]} onPointerOver={e => setHover(true)} onPointerOut={e => setHover(false)} object={gltf.scene} {...props}/>;}
+  const esportsViewer = useGLTF('/src/assets/esportsviewer.glb');
+
+  return (
+    <primitive
+      position={[55, 0, -44]}
+      onClick={(e) => {
+          e.stopPropagation();
+          window.open('https://leejaejoseph.github.io/esports-viewer/')
+      }}
+      object={esportsViewer.scene}
+      {...props}
+  />);
+}

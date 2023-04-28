@@ -1,18 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { SpotLight, useGLTF, useHelper, } from '@react-three/drei';
-import { BoxHelper, Object3D } from 'three';
+import React, { useRef, useState } from 'react';
+import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useControls } from 'leva';
-
+import { useNavigate } from 'react-router-dom';
 
 export function Languages(props) {
     const [hover, setHover] = useState(false);
     const reactRef = useRef();
+    const navigate = useNavigate();
 
-    const languageItems = useGLTF('/src/assets/Portfolio-blender/languageItems.glb');
-    const title = useGLTF('/src/assets/Portfolio-blender/languageTitle.glb');
-    const sqlLight = useGLTF('/src/assets/Portfolio-blender/sqlLight.glb');
-    const reactItem = useGLTF('/src/assets/Portfolio-blender/reactItem.glb') 
+    const languageItems = useGLTF('/src/assets/languageItems.glb');
+    const title = useGLTF('/src/assets/languageTitle.glb');
+    const sqlLight = useGLTF('/src/assets/sqlLight.glb');
+    const reactItem = useGLTF('/src/assets/react.glb') 
 
     const titleMaterial = title.scene.children[0].children[0].material;
     const mesh = languageItems.scene.children;
@@ -29,17 +28,6 @@ export function Languages(props) {
     const css1 = mesh[11].children[5].material;
     const css2 = mesh[11].children[6].material;
     
-    const {position} = languageItems.scene;
-    const addx = useControls({x: 0, xyz:0})
-    const addy = useControls({y: 50})
-    const addz = useControls({z: 0})
-    const pos = useControls({lx: 0, ly: 0, lz: 0})
-    const distance = useControls({d: 100})
-    const intensity = useControls({i: 4})
-    const helper = useRef();
-    const pi = useControls({pi:8})
-    useHelper(helper, BoxHelper, 'cyan')
-    // useHelper(condition && mesh, BoxHelper, 'red')
     let elapsedTime = 0;
 
     useFrame((state, delta) => {
@@ -55,40 +43,24 @@ export function Languages(props) {
       reactRef.current.position.y = Math.sin((elapsedTime*.01) * 100);
     });
     return (
-      <>
-        <SpotLight
-          ref={helper}
-          castShadow
-          position={[position.x + addx.x, position.y + addy.y, position.z + addz.z]}
-          // 20, 34, 14
-          target={languageItems.scene}
-          penumbra={1}
-          distance={distance.d}
-          //0
-          angle={Math.PI / pi.pi} // make the cone wider
-          //  angle={Math.PI / 9} // make the cone wider
-          intensity={intensity.i}
-
-          // intensity={hover ? .5 : 1.5}
-          opacity={0.2}
-        />
+      <group
+        onPointerOver={(e) => setHover(true)}
+        onPointerOut={(e) => setHover(false)}
+        onClick={(e) => {
+          e.stopPropagation();
+          navigate('/frameworks');
+        }}>
         <primitive
-          onPointerOver={(e) => setHover(true)}
-          onPointerOut={(e) => setHover(false)}
           object={languageItems.scene}
           {...props}
           position={[-2, 0, 0]}
         />
         <primitive
-          onPointerOver={(e) => setHover(true)}
-          onPointerOut={(e) => setHover(false)}
           object={title.scene}
           {...props}
           position={[-2, 0, 0]}
         />
         <primitive
-          onPointerOver={(e) => setHover(true)}
-          onPointerOut={(e) => setHover(false)}
           object={sqlLight.scene}
           {...props}
           position={[-2, 0, 0]}
@@ -101,6 +73,6 @@ export function Languages(props) {
             position={[-21, 0, 14.5]}
           />
         </group>
-      </>
+      </group>
     );
   }
