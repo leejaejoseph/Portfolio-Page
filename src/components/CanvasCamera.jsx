@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { useState } from 'react';
 import { OrbitControls, OrthographicCamera } from '@react-three/drei'
 import { useLocation } from "react-router-dom";
@@ -24,16 +25,20 @@ function CanvasCamera() {
     return(
         <>
             <OrthographicCamera
-                    makeDefault
-                    zoom={zoom}
-                    near={1}
-                    far={2000}
-                    position={position}
-                    />
+                makeDefault
+                zoom={zoom}
+                near={1}
+                far={2000}
+                position={position}
+                />
             <OrbitControls
-                    enablePan={true}
-                    enableRotate={false}
-                    />
+                enablePan={true}
+                enableRotate={false}
+                enableZoom={false}
+                mouseButtons={{
+                    LEFT: THREE.MOUSE.PAN
+                }}
+                />
         </>
     )
 }

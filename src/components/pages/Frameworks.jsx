@@ -51,7 +51,7 @@ function Frameworks({handleClose}){
                     {images.map(( img, idx ) =>
                         <div className={idx === index ? "slide activeSlide" : "slide"} >
                             <img src={img} alt={img} />
-                            <div className="caption font-Roboto-Mono">{caption[idx]}</div>
+                            <div className="text-2xl font-Roboto-Mono">{caption[idx]}</div>
                         </div>)
                     }
                 </Slider>
