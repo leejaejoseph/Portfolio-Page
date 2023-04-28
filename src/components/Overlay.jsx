@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { AboutMePage } from "./pages/AboutMePage";
+import { Introduction } from "./pages/Introduction";
+import { Frameworks } from "./pages/Frameworks";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Overlay(props) {
@@ -17,8 +18,10 @@ function Overlay(props) {
     function swapPage() {
         switch (clicked) {
             case '/about':
-                return <AboutMePage handleClose={() => {setClicked(false); navigate('/');}}/>;
-        }
+                return <Introduction handleClose={() => {setClicked(false); navigate('/');}}/>;
+            case '/frameworks':
+                return <Frameworks handleClose={() => {setClicked(false); navigate('/');}}/>
+            }
     }
 
     return (

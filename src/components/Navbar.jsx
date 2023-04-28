@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { logo } from '../assets';
 
-function Navbar() {
+function Navbar() { 
   return (
     <nav className='fixed z-10 pt-8'>
       <Link
-        to ="/"
-        onClick={() => {
-          setActive("");
-          window.scrollTo(0, 0);
-        }}>
+        to ="https://github.com/leejaejoseph">
           <img
-            src={ logo }
+            src='../src/assets/logo.gif'
             alt="logo"
-            onMouseOver={(event) => {
-              event.target.src = logo }}
+            onPointerOver={(event) => {
+              event.target.src = '../src/assets/logo.gif' }}
             className='w-4/12'
             />
         </Link>
