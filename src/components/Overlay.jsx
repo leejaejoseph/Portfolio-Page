@@ -22,7 +22,7 @@ function Overlay(props) {
     }
 
     return (
-        <div className={clicked ? 'absolute z-30 w-full h-full' : 'hidden'}>
+        <div className={clicked ? 'absolute z-30' : 'hidden'}>
             {swapPage()}
         </div>
     )

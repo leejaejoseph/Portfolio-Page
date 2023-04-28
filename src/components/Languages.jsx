@@ -8,9 +8,13 @@ import { useControls } from 'leva';
 export function Languages(props) {
     const [hover, setHover] = useState(false);
     const stack = useGLTF('/src/assets/Portfolio-blender/languageItems.glb');
-    const title = useGLTF('/src/assets/Portfolio-blender/languageTitle.glb')
+    const title = useGLTF('/src/assets/Portfolio-blender/languageTitle.glb');
+    const sqlLight = useGLTF('/src/assets/Portfolio-blender/sqlLight.glb');
+    const reactItem = useGLTF('/src/assets/Portfolio-blender/reactItem.glb') 
+
+    console.log(title.scene, stack.scene)
     const titleMaterial = title.scene.children[0].material; // Assuming the title only has one material
-    const titleMaterial1 = title.scene.children[1].material; // Assuming the title only has one material
+    const titleMaterial1 = title.scene.children[0].material; // Assuming the title only has one material
     const mesh = stack.scene.children[0].children;
     const stackMaterial = mesh[4].material;
     const stackMaterial1 = mesh[6].material;
@@ -67,7 +71,20 @@ export function Languages(props) {
           object={title.scene}
           {...props}
           position={[-2, 0, 0]}
-
+        />
+        <primitive
+          onPointerOver={(e) => setHover(true)}
+          onPointerOut={(e) => setHover(false)}
+          object={sql-light.scene}
+          {...props}
+          position={[-2, 0, 0]}
+        />
+        <primitive
+          onPointerOver={(e) => setHover(true)}
+          onPointerOut={(e) => setHover(false)}
+          object={react.scene}
+          {...props}
+          position={[-2, 0, 0]}
         />
       </>
     );

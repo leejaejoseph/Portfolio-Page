@@ -28,33 +28,32 @@ export default function App() {
 
   // const [isOrthographic, setIsOrthographic] = useState(true); onClose={setIsOrthographic(!isOrthographic)}
 
-  const cameraCont = useControls({z:20, n:1, f:2000, x2:160, y2:151, z2:240, li:1, l1:1, l2:2, l3:3})
+  const cameraCont = useControls({z:20, n:1, f:2000, li:1, l1:1, l2:2, l3:3})
   return (
     <BrowserRouter>
       <Navbar/>
       <Overlay/>
-      <Canvas 
-      style={
-        {backgroundImage: 'linear-gradient(to bottom, #000000 50%, #33a6ff)'}}
-        // camera={isOrthographic ? orthographicCameraRef.current : perspectiveCameraRef.current}
-      
-        >
-        <Environment background preset="night"/>
-        <BLight/>
-        <Reactor/>
-        {/* <directionalLight intensity={1} color="#ffffff" position={[1, 2, 3]} /> */}
-        <Grid/>
-        <Languages position={[10, 1, 10]}/>
-        <LinkedIn/>
-        <Resume/>
-        <BeTabd/>
-        <Reactor/>
-        <AboutMe />
-        <EsportsViewer/>
-        <Filler/>
-        <Plane/>
-        <RCamera/>
-      </Canvas>
+      <div style={{ width: "100vw", height: "100vh" }}>
+        <Canvas 
+        style={
+          {backgroundImage: 'linear-gradient(to bottom, #000000 50%, #33a6ff)'}}        
+          >
+          <Environment background preset="night"/>
+          <BLight/>
+          <Reactor/>
+          <Grid/>
+          <Languages position={[10, 1, 10]}/>
+          <LinkedIn/>
+          <Resume/>
+          <BeTabd/>
+          <Reactor/>
+          <AboutMe />
+          <EsportsViewer/>
+          <Filler/>
+          <Plane/>
+          <RCamera/>
+        </Canvas>
+      </div>
     </BrowserRouter>
   )
 }

@@ -15,7 +15,7 @@ function RCamera() {
         console.log(position);
         if (location.pathname === '/about') {
             console.log(location);
-            setPosition([pol.x2, pol.y2, pol.z2]);
+            setPosition([16, 405, 499]);
         } else {
             setPosition([180, 120, 200]);
         }

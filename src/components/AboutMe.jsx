@@ -19,5 +19,5 @@ export function AboutMe(props) {
 
   return (
   <>
-    <primitive position={[42, 0, 50]}  onClick={(e)=>{e.stopPropagation(); setShowModal(!showModal); navigate('/about');}} object={aboutMe.scene}{...props}/>
+    <primitive position={[11, 0, 52]}  onClick={(e)=>{e.stopPropagation(); setShowModal(!showModal); navigate('/about');}} object={aboutMe.scene}{...props}/>
   </>)}

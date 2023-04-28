@@ -9,7 +9,7 @@ export function Reactor(props) {
     const react = useGLTF('/src/assets/Portfolio-blender/react.glb');
 
     const positions = [
-        [-23, 0, 49],
+        [-23, 0, 63],
         [-33, 0, -43],
         [47, 0, 13],
       ];
