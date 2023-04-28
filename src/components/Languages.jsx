@@ -7,20 +7,30 @@ import { useControls } from 'leva';
 
 export function Languages(props) {
     const [hover, setHover] = useState(false);
-    const stack = useGLTF('/src/assets/Portfolio-blender/languageItems.glb');
+    const reactRef = useRef();
+
+    const languageItems = useGLTF('/src/assets/Portfolio-blender/languageItems.glb');
     const title = useGLTF('/src/assets/Portfolio-blender/languageTitle.glb');
     const sqlLight = useGLTF('/src/assets/Portfolio-blender/sqlLight.glb');
     const reactItem = useGLTF('/src/assets/Portfolio-blender/reactItem.glb') 
 
-    console.log(title.scene, stack.scene)
-    const titleMaterial = title.scene.children[0].material; // Assuming the title only has one material
-    const titleMaterial1 = title.scene.children[0].material; // Assuming the title only has one material
-    const mesh = stack.scene.children[0].children;
-    const stackMaterial = mesh[4].material;
-    const stackMaterial1 = mesh[6].material;
-    const stackMaterial2 = mesh[7].material;
-    const {position} = stack.scene;
-    const addx = useControls({x: 0})
+    const titleMaterial = title.scene.children[0].children[0].material;
+    const mesh = languageItems.scene.children;
+    
+    const react1 = mesh[7].material;
+    const typeScript1 = mesh[5].children[0].material;
+    const typeScript2 = mesh[5].children[1].material;
+    const postgreSQL1 = mesh[6].children[0].material;
+    const postgreSQL2 = mesh[6].children[1].material;
+    const javaScript1 = mesh[11].children[1].material;
+    const javaScript2 = mesh[11].children[2].material;
+    const html1 = mesh[11].children[3].material;
+    const html2 = mesh[11].children[4].material;
+    const css1 = mesh[11].children[5].material;
+    const css2 = mesh[11].children[6].material;
+    
+    const {position} = languageItems.scene;
+    const addx = useControls({x: 0, xyz:0})
     const addy = useControls({y: 50})
     const addz = useControls({z: 0})
     const pos = useControls({lx: 0, ly: 0, lz: 0})
@@ -30,15 +40,19 @@ export function Languages(props) {
     const pi = useControls({pi:8})
     useHelper(helper, BoxHelper, 'cyan')
     // useHelper(condition && mesh, BoxHelper, 'red')
-    
+    let elapsedTime = 0;
+
     useFrame((state, delta) => {
       if (hover) {
         const t = Math.min(1, titleMaterial.emissiveIntensity + delta * 2);
-        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = stackMaterial.emissiveIntensity = stackMaterial1.emissiveIntensity = stackMaterial2.emissiveIntensity = t;
+        titleMaterial.emissiveIntensity = react1.emissiveIntensity = javaScript1.emissiveIntensity = javaScript2.emissiveIntensity = html1.emissiveIntensity = html2.emissiveIntensity = css1.emissiveIntensity = css2.emissiveIntensity = typeScript1.emissiveIntensity = typeScript2.emissiveIntensity = postgreSQL1.emissiveIntensity = postgreSQL2.emissiveIntensity = t;
       } else {
         const t = Math.max(0, titleMaterial.emissiveIntensity - delta * 2);
-        titleMaterial.emissiveIntensity = titleMaterial1.emissiveIntensity = stackMaterial.emissiveIntensity = stackMaterial1.emissiveIntensity = stackMaterial2.emissiveIntensity = t;
+        titleMaterial.emissiveIntensity = react1.emissiveIntensity = javaScript1.emissiveIntensity = javaScript2.emissiveIntensity = html1.emissiveIntensity = html2.emissiveIntensity = css1.emissiveIntensity = css2.emissiveIntensity = typeScript1.emissiveIntensity = typeScript2.emissiveIntensity = postgreSQL1.emissiveIntensity = postgreSQL2.emissiveIntensity = t;
       }
+      elapsedTime+=delta
+      reactRef.current.rotation.y += delta;
+      reactRef.current.position.y = Math.sin((elapsedTime*.01) * 100);
     });
     return (
       <>
@@ -47,7 +61,7 @@ export function Languages(props) {
           castShadow
           position={[position.x + addx.x, position.y + addy.y, position.z + addz.z]}
           // 20, 34, 14
-          target={stack.scene}
+          target={languageItems.scene}
           penumbra={1}
           distance={distance.d}
           //0
@@ -61,7 +75,7 @@ export function Languages(props) {
         <primitive
           onPointerOver={(e) => setHover(true)}
           onPointerOut={(e) => setHover(false)}
-          object={stack.scene}
+          object={languageItems.scene}
           {...props}
           position={[-2, 0, 0]}
         />
@@ -75,17 +89,18 @@ export function Languages(props) {
         <primitive
           onPointerOver={(e) => setHover(true)}
           onPointerOut={(e) => setHover(false)}
-          object={sql-light.scene}
+          object={sqlLight.scene}
           {...props}
           position={[-2, 0, 0]}
         />
-        <primitive
-          onPointerOver={(e) => setHover(true)}
-          onPointerOut={(e) => setHover(false)}
-          object={react.scene}
-          {...props}
-          position={[-2, 0, 0]}
-        />
+        <group>
+          <primitive
+            ref={reactRef}
+            object={reactItem.scene}
+            {...props}
+            position={[-21, 0, 14.5]}
+          />
+        </group>
       </>
     );
   }

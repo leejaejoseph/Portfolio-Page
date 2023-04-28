@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useControls } from 'leva';
 
 
 export function Reactor(props) {
@@ -20,6 +19,7 @@ export function Reactor(props) {
         {positions.map((position, index) => {
                 const reactRef = useRef({}); 
                 let elapsedTime = 0;
+
                 useFrame((state, delta) => {
                     elapsedTime+=delta
                     reactRef.current.rotation.y += delta;
@@ -28,6 +28,7 @@ export function Reactor(props) {
 
                 const clonedReactor = reactor.scene.clone(true);
                 const clonedReact = react.scene.clone(true);
+
                 return (
                     <group key={index} position={position}>
                         <primitive object={clonedReactor} {...props} />

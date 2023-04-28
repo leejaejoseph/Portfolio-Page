@@ -3,7 +3,7 @@ import React from "react";
 function AboutMePage({handleClose}){
     return (
     <div className="flex w-[100vw] h-[100vh] justify-center items-center">
-        <div className='relative flex flex-wrap h-[70vh] w-9/12 rounded-3xl bg-white/40'>
+        <div className='relative flex flex-wrap h-[70vh] w-9/12 rounded-3xl bg-white/80'>
             <div className="flex w-full h-2/6 items-center justify-center">
                 <h1 className='text-6xl pt-4 text-center font-Orbitron'>
                     About Me
