@@ -6,5 +6,4 @@ import "./index.css"
 const container = document.querySelector('#root');
 const root = ReactDOM.createRoot(container);
 
-// Take the imported App component and render to root DOM.
 root.render(<App />)
