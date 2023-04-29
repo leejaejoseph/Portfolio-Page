@@ -49,7 +49,7 @@ function Frameworks({handleClose}){
             <div className="carousel">
                 <Slider {...settings}>
                     {images.map(( img, idx ) =>
-                        <div className={idx === index ? "slide activeSlide" : "slide"} >
+                        <div className={idx === index ? "slide activeSlide" : "slide"} key={idx}>
                             <img src={img} alt={img} />
                             <div className="text-2xl font-Roboto-Mono">{caption[idx]}</div>
                         </div>)
