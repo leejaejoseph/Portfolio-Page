@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
 
 export function AboutMe(props) {
-  const aboutMe = useGLTF('/src/assets/aboutme.glb');
+  const aboutMe = useGLTF(`${import.meta.env.VITE_APP_BASE_URL}/src/assets/aboutme.glb`);
   const navigate = useNavigate();
 
   return (
