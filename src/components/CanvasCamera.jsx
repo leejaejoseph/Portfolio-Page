@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { OrbitControls, OrthographicCamera } from '@react-three/drei'
 import { useLocation } from "react-router-dom";
 import { useEffect } from 'react';
