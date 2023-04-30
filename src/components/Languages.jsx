@@ -9,10 +9,10 @@ export function Languages(props) {
     const reactRef = useRef();
     const navigate = useNavigate();
 
-    const languageItems = useGLTF('/src/assets/languageItems.glb');
-    const title = useGLTF('/src/assets/languageTitle.glb');
-    const sqlLight = useGLTF('/src/assets/sqlLight.glb');
-    const reactItem = useGLTF('/src/assets/react.glb') 
+    const languageItems = useGLTF('/assets/languageItems.glb');
+    const title = useGLTF('/assets/languageTitle.glb');
+    const sqlLight = useGLTF('/assets/sqlLight.glb');
+    const reactItem = useGLTF('/assets/react.glb');
 
     const titleMaterial = title.scene.children[0].children[0].material;
     const mesh = languageItems.scene.children;

@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 export function LinkedIn(props) {
-    const linkedIn = useGLTF('/src/assets/linkedin.glb');
+    const linkedIn = useGLTF('/assets/linkedin.glb');
     const glass = linkedIn.materials["Glass-Linkedin"];
     
     useFrame((state) => {

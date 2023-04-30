@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 export function Resume(props) {
-    const resume = useGLTF('/src/assets/resume.glb');
+    const resume = useGLTF('/assets/resume.glb');
     const glass = resume.materials["Glass-Resume.002"];
       useFrame((state) => {
           const sine = (Math.sin(state.clock.getElapsedTime() * 3.1) + 1) / 2; 
@@ -13,7 +13,7 @@ export function Resume(props) {
         <primitive
             onClick={(e) => {
                 e.stopPropagation();
-                window.open('/src/assets/files/Lee_Joseph_Resume.pdf');
+                window.open('/assets/files/Lee_Joseph_Resume.pdf');
             }}
             object={resume.scene}
             {...props}

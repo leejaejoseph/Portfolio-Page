@@ -4,7 +4,7 @@ import { awsec2, blender, javascript, css, express, git, html, nodeJs, react, ta
 
 
 function Frameworks({handleClose}){
-    const images = [ html, css, javascript, react, express, git, nodeJs, webpack, tailwind, threeJs, awsec2, blender ]
+    const images = [ html, css, javascript, react, express, git, nodeJs, webpack, tailwind, threeJs, awsec2, blender ];
     const caption = [ 'HTML', 'CSS', 'ES6', 'React', 'Express.js', 'Git', 'Node.js', 'Webpack', 'TailwindCSS', 'three.js', 'AWS EC2', 'Blender'];
     
     const [index, setIndex] = useState(0);
