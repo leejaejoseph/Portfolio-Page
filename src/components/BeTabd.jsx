@@ -4,7 +4,7 @@ import { useFrame } from '@react-three/fiber';
 
 
 export function BeTabd(props) {
-  const beTabd = useGLTF(`${import.meta.env.VITE_APP_BASE_URL}/src/assets/be-tabd.glb`);
+  const beTabd = useGLTF('/assets/be-tabd.glb');
   const [hover, setHover] = useState(false);
   const titleMaterial = beTabd.scene.children[4].material
   useFrame((state, delta) => {

@@ -3,8 +3,8 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 export function Reactor(props) {
-    const reactor = useGLTF('/src/assets/reactor.glb');
-    const atom = useGLTF('/src/assets/atom.glb');
+    const reactor = useGLTF('/assets/reactor.glb');
+    const atom = useGLTF('/assets/atom.glb');
 
     const positions = [
         [-23, 0, 63],

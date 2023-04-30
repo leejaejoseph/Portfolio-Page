@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 export function EsportsViewer(props) {
-  const esportsViewer = useGLTF('/src/assets/esportsviewer.glb');
+  const esportsViewer = useGLTF('/assets/esportsviewer.glb');
   const [hover, setHover] = useState(false);
   const titleMaterial = esportsViewer.scene.children[5].material
 
