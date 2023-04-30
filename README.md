@@ -4,7 +4,7 @@ Hello! My name is Joseph Lee, and I am a front-end web developer having shifted 
 For this project, I utilized a variety of different platforms and frameworks including Blender, AfterEffects, and GLTF. Experimenting with different libraries and tools, my goal was to create a different take on a personal portfolio. I'm excited to share my work with you, and I hope you enjoy exploring my portfolio!
 
 ## Link To Project
-[portfolio.youngjae.me](portfolio.youngjae.me)
+[portfolio.youngjae.me](https://portfolio.youngjae.me/)
 
 ## Demonstration
 https://user-images.githubusercontent.com/116613246/235258828-6ccf8fb3-4170-4d08-81fe-ad5b3403e864.mp4
