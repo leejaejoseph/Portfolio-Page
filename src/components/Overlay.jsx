@@ -42,6 +42,7 @@ function Overlay(props) {
                     <h1>Please wait for the Application to Load</h1>
                     <img src={loading} alt='loading gif'/>
                     <h5 className="text-2xl">Use Left-Mouse-Click Move, Access Links, and open Pop-ups.</h5>
+                    <h6 className="text-xl">Recommended to use FireFox or Edge as Chrome will not hardware accelerate. Mobile will not work either.</h6>
                 </div>
             </div>
             <div className={clicked ? 'absolute z-30' : 'hidden'}>
